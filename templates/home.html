@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
-
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-  </head>
-  <body ng-app="starter">
-
+<ion-view>
     <ion-pane>
         
   <div class="top-bar">
@@ -34,20 +10,21 @@
 <ion-header-bar align-title="center" class="bar-positive">
     
   <div class="buttons">
-    <a ng-click="doSomething()"><img src="img/btn1.png"></a>
+    <a ng-click="dosth()"><img src="img/btn1.png"></a>
   </div>
   <h1 class="title">戶口記錄</h1>
+
   <div class="buttons">
-    <a><img src="img/btn2.png"></a>
+    <a ng-href="#/record"><img src="img/btn2.png"></a>
   </div>
 </ion-header-bar>
  <div class="bar bar-subheader">
      <div class="centerbox">
-         <p>時間:12/05/2016 17:53</p>
-     <p>戶口號碼:88888888</p>
-     <p>結餘:$5,856.80</p>
+         <p>時間:{{time}}</p>
+     <p>戶口號碼:{{acc}}</p>
+     <p>結餘:${{balance}}</p>
      </div>
- 
+
 </div>   
        
 <ion-content class="has-subheader">
@@ -90,7 +67,12 @@
       </div>
       
       <div class="col-50 rightbox">
-        <p>所有</p>
+         <select>
+  <option value="volvo">所有</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
         
       </div> 
     
@@ -103,5 +85,4 @@
         
         
     </ion-pane>
-  </body>
-</html>
+ </ion-view>
