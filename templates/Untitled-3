@@ -1,45 +1,4 @@
-       
  
-<ion-view view-title="戶口記錄">
-    
-    
-    
-    
-    <ion-nav-buttons side="left">
-         
-      <a class="buttons"  href="#/home">
-       <img src="img/btn1.png">
-      </a>
-    </ion-nav-buttons>
-     
-     <ion-nav-buttons side="right">
-       
-  <a class="buttons"  href="#/create">
-     <img src="img/btn2.png">
-  </a>
-    </ion-nav-buttons>
-    
-    
-<!--
-
-     <ion-nav-buttons side="left">
-         
-      <span class="buttons">
-        <a href="#/home"><img src="img/btn1.png"></a>
-      </span>
-    </ion-nav-buttons>
-     
-     <ion-nav-buttons side="right">
-       
-  <span class="buttons">
-    <a  href="#/create" > <img src="img/btn2.png"></a>
-  </span>
-    </ion-nav-buttons>
--->
-
-      
-  
-  
       <div class="bar bar-subheader">
      <div class="centerbox">
          <p>時間:  {{date}}</p>
@@ -92,7 +51,7 @@
      
    </div>  
      
-<!--     
+     
   <div class="item">
       <table>
 
@@ -121,11 +80,9 @@
       
       </table>
      </div>
-   -->  
+     
 
    
  
 </ion-content>
         
-      </ion-view>
-   

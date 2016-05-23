@@ -7,7 +7,7 @@ app.controller('homeCon', function($scope,$http,$rootScope) {
     
     $http({
                   method: 'GET',
-              url:'http://localhost/mobile/info',
+              url:'http://192.168.1.147/mobile/info',
                 }).then(
               function successCallback(rs){
               console.log(rs.data)

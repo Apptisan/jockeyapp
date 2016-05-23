@@ -10,7 +10,7 @@ $scope.add=function(){
    console.log($scope.rec)
       $http({
                     method: 'POST',
-                    url:'http://localhost/mobile/record/',
+                    url:'http://192.168.1.147/mobile/record/',
                     data: $scope.rec
             }).then(
               function successCallback(rs){
