@@ -1,33 +1,41 @@
-<ion-view>
-    <ion-pane>
-        
-  <div class="top-bar">
-         <div class="w1">
-           <img src="img/top-bar.png"/>
-         </div>
+       
+ 
+<ion-view view-title="戶口記錄 ">
+     <!--button-->
+     <ion-nav-buttons side="primary">      
+      <div class="buttons">
+        <a ng-click="doSomething()" href="#/manager"><img src="img/btn1.png"></a>
+      </div>
+    </ion-nav-buttons>
      
-</div>           
-<ion-header-bar align-title="center" class="bar-positive">
-    
+     <ion-nav-buttons side="secondary">
   <div class="buttons">
-    <a ng-click="dosth()"><img src="img/btn1.png"></a>
+    <a ng-click="doSomething()" ng-href="#/list"><img src="img/btn3.png"></a>
   </div>
-  <h1 class="title">戶口記錄</h1>
-
-  <div class="buttons">
-    <a ng-href="#/record"><img src="img/btn2.png"></a>
-  </div>
-</ion-header-bar>
- <div class="bar bar-subheader">
+    </ion-nav-buttons>
+     <!--button-->
+     
+  
+      <div class="bar bar-subheader">
      <div class="centerbox">
-         <p>時間:{{time}}</p>
-     <p>戶口號碼:{{acc}}</p>
-     <p>結餘:${{balance}}</p>
+         <p>時間:  {{rec.date}}</p>
+     <p>戶口號碼:  {{rec.acc}}</p>
+     <p>結餘: {{ rec.balance | currency }}</p>
      </div>
 
-</div>   
-       
-<ion-content class="has-subheader">
+</div>  
+     
+    
+        <ion-content class="has-subheader">
+            
+        
+ 
+      
+
+
+            
+            
+
     <p class="text1">每次最多可搜尋過去30天内其中8天</p>
 <div class="card">
   <div class="row">
@@ -80,9 +88,7 @@
 </div>
 
   
+        
+ </ion-content>
  
-</ion-content>
-        
-        
-    </ion-pane>
- </ion-view>
+      </ion-view>

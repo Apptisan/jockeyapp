@@ -1,8 +1,77 @@
 var app = angular.module('jockey');
-app.controller('recordCon', function($scope) {
+app.controller('recordCon', function($scope,$http,$rootScope,$stateParams,$state) {
+  
+   
+    console.log('asas'+$stateParams._id)
+  
     
-    $scope.time="12/05/2016 17:53";
-    $scope.acc="82323543";
-    $scope.balance="19,343,654.90";
     
+      $http({
+                    method: 'GET',
+                    url:'http://localhost/mobile/record/'+$stateParams._id
+            }).then(
+              function successCallback(rs){
+              console.log(rs.data)
+                     $scope.rec=rs.data.rec;
+            
+              
+              
+              
+                    },
+              function errorCallback(response){
+                  
+               
+              });
+    
+    
+    
+$scope.save=function(){
+   
+      $http({
+                    method: 'PUT',
+                    url:'http://localhost/mobile/record/',
+                    data: $scope.rec
+            }).then(
+              function successCallback(rs){
+                     console.log(rs.data)
+                     //$scope.rec=rs.data.rec;
+            
+                 $state.go('list');
+              
+              
+                    },
+              function errorCallback(response){
+                  
+               
+              });
+}     
+    
+
+$scope.delete=function(){
+    
+    if(!confirm("Are you sure?"))return;
+       
+    
+    $http({
+                    method: 'DELETE',
+                    url:'http://localhost/mobile/record/'+$scope.rec._id
+            }).then(
+              function successCallback(rs){
+                     console.log(rs.data)
+                     //$scope.rec=rs.data.rec;
+            
+                 $state.go('list');
+              
+              
+                    },
+              function errorCallback(response){
+                  
+               
+              });
+    
+    
+    
+}
+
+
 });

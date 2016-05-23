@@ -7,6 +7,7 @@ angular.module('jockey', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+      
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -25,25 +26,46 @@ angular.module('jockey', ['ionic'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-    
+         $ionicConfigProvider.navBar.alignTitle('center');
+
   $stateProvider
 
   // setup an abstract state for the tabs directive
       .state('home', {
     url: '/home',
+        cache: false,
     templateUrl: 'templates/home.html',
     controller: 'homeCon'
   })
+   .state('list', {
+    url: '/list',
+      cache: false,
+    templateUrl: 'templates/list.html',
+    controller: 'listCon'
+  })
    .state('record', {
-    url: '/record',
+    url: '/record/:_id',
+      cache: false,
     templateUrl: 'templates/record.html',
     controller: 'recordCon'
+  })
+   .state('manager', {
+    url: '/manager',
+      cache: false,
+    templateUrl: 'templates/manager.html',
+    controller: 'managerCon'
+  })
+   .state('create', {
+    url: '/create',
+       cache: false,
+    templateUrl: 'templates/create.html',
+    controller: 'createCon'
   })
   
 

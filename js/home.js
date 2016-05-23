@@ -1,9 +1,26 @@
 var app = angular.module('jockey');
-app.controller('homeCon', function($scope) {
+app.controller('homeCon', function($scope,$http,$rootScope) {
   
         
-    $scope.time="12/05/2016 17:53";
-    $scope.acc="823255";
-    $scope.balance="19,343,654.91";
+   
+    
+    
+    $http({
+                  method: 'GET',
+              url:'http://localhost/mobile/info',
+                }).then(
+              function successCallback(rs){
+              console.log(rs.data)
+                     $rootScope.rec=rs.data.info;
+                 
+              
+
+              
+                    },
+              function errorCallback(response){
+                  
+               
+              });
+    
     
 });

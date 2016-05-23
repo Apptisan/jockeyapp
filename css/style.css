@@ -14,6 +14,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p,div{font-family:Microsoft
 .item{padding:0px;border:none;font-size:13px}
 .item-divider{padding:0 2px;background:url(../img/44.jpg) center repeat-x;background-size: auto 100%;line-height:20px;color:#fff;min-height: 20px;margin:-1px 0;border:none}
 .item-divider,.seach-bar{font-size:13px;font-weight:500}
+.seach-bar{position: absolute;top:122px;width:100%}
 .col{padding:0 7px;}.row{padding:0;}
 .blod{font-weight:600!important;}
 table{width: 100%;table-layout:fixed;}
@@ -31,3 +32,4 @@ table{width: 100%;table-layout:fixed;}
 .leftbox p,.rightbox p{margin-bottom:0;font-size:13px;line-height:20px;line-height:19px}
 .leftbox p{color:#000;}
 .rightbox p{text-align:right;color:#686867}
+.bar .buttons-right span{margin-left:0;}
