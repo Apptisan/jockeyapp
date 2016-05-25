@@ -4,12 +4,12 @@ app.controller('managerCon', function($scope,$http,$rootScope,$state) {
     
       $http({
                     method: 'GET',
-                    url:'http://localhost/mobile/info/'
+                    url:$rootScope.baseURL+'/mobile/info/'
             }).then(
               function successCallback(rs){
               console.log(rs.data)
                      $scope.info=rs.data.info;
-            
+                    $scope.info.date=new Date($scope.info.date);
               
               
               
@@ -27,7 +27,7 @@ $scope.save=function(){
    
       $http({
                     method: 'PUT',
-                    url:'http://localhost/mobile/info/',
+                    url:$rootScope.baseURL+'/mobile/info/',
                     data: $scope.info
             }).then(
               function successCallback(rs){

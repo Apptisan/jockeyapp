@@ -4,13 +4,13 @@
      <!--button-->
      <ion-nav-buttons side="left">      
       
-  <a   class="button " ng-href="#/manager"><img src="img/btn1.png"></a>
+  <a class="button btn1" ng-href="#/manager"></a>
       
     </ion-nav-buttons>
      
      <ion-nav-buttons side="right">
   
-   <a class="button" href="#/list"><img src="img/btn3.png"></a>
+   <a class="button btn3" ng-click="goto()"></a>
   
     </ion-nav-buttons>
      <!--button-->
@@ -18,9 +18,9 @@
   
       <div class="bar bar-subheader">
      <div class="centerbox">
-         <p>時間:  {{rec.date}}</p>
-     <p>戶口號碼:  {{rec.acc}}</p>
-     <p>結餘: {{ rec.balance | currency }}</p>
+         <p>時間:  {{info.date | date:'dd/MM/yyyy'}}</p>
+     <p>戶口號碼:  {{info.acc}}</p>
+     <p>結餘: {{ info.balance | currency }}</p>
      </div>
 
 </div>  
@@ -39,29 +39,47 @@
     <p class="text1">每次最多可搜尋過去30天内其中8天</p>
 <div class="card">
   <div class="row">
-      <div class="col-50 leftbox">
+      <div class="col-33 leftbox">
         <p>由：</p>
         <p>至：</p>
       </div>
-      
-      <div class="col-50 rightbox">
-        <p>15/05/2016</p>
-        <p>15/05/2016</p>
-      </div> 
+
+      <div class="col-67 rightbox">
+        <p class="datep"><input type="date" ng-model="searchDate.startDate"></p>
+        <p class="datep"><input type="date" ng-model="searchDate.endDate"></p>
+          
+      </div>
+      <div>
+   
+      </div>
     
   </div>
 </div>
 
     <div class="card">
   <div class="row">
-      <div class="col-50 leftbox">
-        <p>交易種類</p>
+      <div class="col-33 leftbox">
+        <p>交易種類      
+</p>
        
       </div>
       
-      <div class="col-50 rightbox">
-        <p>所有</p>
-        
+       <div class="col-67 rightbox">
+          <label class="item item-input item-select">
+   <div class="input-label">
+    
+   </div>
+   <select>
+         <option value="saab">賽馬</option>
+                <option value="saab">足球</option>
+         <option value="saab">六合彩</option>
+         <option selected value="saab">所有</option>
+
+     <option value="volvo">其他</option>
+ 
+   </select>
+ </label>
+
       </div> 
     
   </div>
@@ -69,19 +87,23 @@
     
      <div class="card">
   <div class="row">
-      <div class="col-50 leftbox">
+      <div class="col-33 leftbox">
         <p>顯示種類</p>
        
       </div>
       
-      <div class="col-50 rightbox">
-         <select>
-  <option value="volvo">所有</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
-        
+      <div class="col-67 rightbox">
+          <label class="item item-input item-select">
+   <div class="input-label">
+    
+   </div>
+   <select>
+         <option value="saab">已派彩/已退款/已回扣之交易</option>
+     <option value="volvo" selected>所有</option>
+ 
+   </select>
+ </label>
+
       </div> 
     
   </div>

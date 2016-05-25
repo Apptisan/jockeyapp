@@ -1,21 +1,21 @@
 <style>
     .item{border-bottom:1px solid #eee;margin:0px;}
-    .has-header{top:50px }
+    .has-header{top:50px } .list{margin:0 15px}
 </style>      
  
 <ion-view >
      <!--button-->
-     <ion-nav-buttons side="primary">      
-      <div class="buttons">
+     <ion-nav-buttons side="left">      
+     
         
-        <a class="button  button-clear" href="#/list">
+        <a class="button  button-clear" href="#/list/">
         Back
       </a>
-      </div>
+      
     </ion-nav-buttons>
      
-     <ion-nav-buttons side="secondary">
-    <button class="button button-clear " ng-click="save()">Save</button>
+     <ion-nav-buttons side="right">
+    <a class="button button-clear " ng-click="save()">Save</a>
 
     </ion-nav-buttons>
    
@@ -34,13 +34,13 @@
        <div class="list">
   <label class="item item-input">
     <span class="input-label">Reference No.</span>
-    <input type="text" ng-model="rec.no">
+    <input type="number" ng-model="rec.no">
   </label>
  
            
             <label class="item item-input">
     <span class="input-label">Date</span>
-    <input type="text" ng-model="rec.date" >
+    <input type="date" ng-model="rec.date" >
   </label>
            
             <label class="item item-input">
@@ -50,17 +50,18 @@
            
             <label class="item item-input">
     <span class="input-label">Detail</span>
-    <input type="text" ng-model="rec.detail">
+    <textarea type="text" ng-model="rec.detail" rows="4">
+                </textarea>
   </label>
            
             <label class="item item-input">
     <span class="input-label">Expenditure</span>
-    <input type="text" ng-model="rec.expense">
+    <input type="number" ng-model="rec.expense">
   </label>
            
             <label class="item item-input">
     <span class="input-label">Income</span>
-    <input type="text" ng-model="rec.income">
+    <input type="number" ng-model="rec.income">
   </label>
            
             <label class="item item-input">

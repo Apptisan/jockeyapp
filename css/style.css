@@ -1,16 +1,19 @@
 /* Empty. Add your own CSS if you like */
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p,div{font-family:Microsoft YaHei!important;}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p,div,select{font-family:Microsoft YaHei!important;}
 .bar{height:50px}
 .has-header{top:122px;}
 .platform-android .bar .title,.bar .title{line-height:50px;height:50px;font-weight:bold}
 .bar.bar-positive{background:url(../img/11.jpg) center;background-size: 100% 100%;}
-.bar-positive .button{background-color:none;}
-.buttons{width:61px;}.buttons a{display:inline-block;padding-top:5px;}
+.bar-positive .button{width:61px;height:30px;background-color:rgba(0,0,0,0);background-size: cover;margin-top:5px}
+.btn1{background:url(../img/btn1.png) center no-repeat;}
+.btn2{background:url(../img/btn2.png) center no-repeat;}
+.btn3{background:url(../img/btn3.png) center no-repeat;}
+.buttons a{display:inline-block;}
 .buttons a img{max-width:100%}
 .bar-subheader{background:url(../img/22.jpg) center repeat-x;background-size: auto 100%;height:69px;color:#010100;top:53px;display: table;}
 .bar-subheader p{text-align:center;line-height:19px;font-size:13px;margin:0;}
 .centerbox{display:table-cell; vertical-align:middle}
-.seach-bar{background:url(../img/33.jpg) center repeat-x;background-size: auto 100%;color:#fff;line-height:29px;padding-left:7px;}
+.seach-bar{background-image:url(../img/33.jpg);background-size: auto 100%;color:#fff;line-height:29px;padding-left:7px;height:29px;}
 .item{padding:0px;border:none;font-size:13px}
 .item-divider{padding:0 2px;background:url(../img/44.jpg) center repeat-x;background-size: auto 100%;line-height:20px;color:#fff;min-height: 20px;margin:-1px 0;border:none}
 .item-divider,.seach-bar{font-size:13px;font-weight:500}
@@ -20,7 +23,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p,div{font-family:Microsoft
 table{width: 100%;table-layout:fixed;}
 
 .w1{width:360px;margin:0 auto;}
-.bar .title {font-size:15px}
+.title,.header-item{font-size:15px!important}
 .bar-header{top:3px;}
 .top-bar img,.top-bar{width:100%;z-index:99;}
 .top-bar{position:fixed;background-color:#edb22b;text-align:center;height:5px;}
@@ -33,3 +36,13 @@ table{width: 100%;table-layout:fixed;}
 .leftbox p{color:#000;}
 .rightbox p{text-align:right;color:#686867}
 .bar .buttons-right span{margin-left:0;}
+.item-select:after{content:none;}
+.item-select{height:19px}
+.item-select select{max-width:100%;width:100%!improtant;padding:0;color: #686867;font-size:13px;line-height:19px}
+.input-label{width:0;}
+.datep input[type="date"]{padding-top:0;height:19px;font-size:13px;line-height:9px;color:#686867!important;width:100%;text-align:right;-webkit-appearance: none;-moz-appearance: none;appearance: none;vertical-align:top;position:absolute;right:-23px;top:3px;}
+.platform-ios input[type="date"]{padding-top: 0;}
+.datep{position: relative;height:19px;}
+.item-input input, .item-input textarea {
+    width: 83%!important;
+}

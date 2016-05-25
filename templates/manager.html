@@ -1,6 +1,7 @@
 <style>
     .item{border-bottom:1px solid #eee;margin:0px;}
     .has-header{top:50px }
+     .list{margin:0 15px}
 </style>      
  
 <ion-view >
@@ -13,7 +14,7 @@
     </ion-nav-buttons>
      
      <ion-nav-buttons side="right">
-    <button class="button button-clear " ng-click="save()">Save</button>
+    <a class="button button-clear " ng-click="save()">Save</a>
 
     </ion-nav-buttons>
      <!--button-->
@@ -31,7 +32,7 @@
        <div class="list">
   <label class="item item-input">
     <span class="input-label">Date</span>
-    <input type="text" ng-model="info.date">
+    <input type="date" ng-model="info.date">
   </label>
  
            
@@ -42,7 +43,7 @@
            
             <label class="item item-input">
     <span class="input-label">Balance</span>
-    <input type="text" ng-model="info.balance">
+    <input type="number" ng-model="info.balance">
   </label>
            
     

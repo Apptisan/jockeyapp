@@ -1,4 +1,4 @@
-       
+ 
  
 <ion-view view-title="戶口記錄">
     
@@ -7,16 +7,12 @@
     
     <ion-nav-buttons side="left">
          
-      <a class="button"  href="#/home">
-       <img src="img/btn1.png">
-      </a>
+      <a class="button btn1"  href="#/home"></a>
     </ion-nav-buttons>
      
      <ion-nav-buttons side="right">
        
-  <a class="button"  href="#/create">
-     <img src="img/btn2.png">
-  </a>
+  <a class="button btn2"  href="#/create"></a>
     </ion-nav-buttons>
     
     
@@ -41,20 +37,21 @@
   
   
       <div class="bar bar-subheader">
-     <div class="centerbox">
-         <p>時間:  {{date}}</p>
-     <p>戶口號碼:  {{acc}}</p>
-     <p>結餘:  ${{ acc_balance | currency }}</p>
+
+      <div class="centerbox">
+           <p>時間:  {{info.date | date:'dd/MM/yyyy'}}</p>
+     <p>戶口號碼:  {{info.acc}}</p>
+     <p>結餘: {{ info.balance | currency }}</p>
      </div>
 
 </div>  
    
- <div class="seach-bar">搜尋時段:10/05/2016至11/05/2016</div>        
+ <div class="seach-bar"><b>搜尋時段:{{searchDate.startDate | date:'dd/MM/yyyy' }}至{{searchDate.endDate|  date:'dd/MM/yyyy' }}</b></div>        
 <ion-content class="has-subheader" overflow-scroll="true"  style="top:151px;">
     
  <div class="list">
 
- <div ng-repeat="rec in records" ng-click="goto(rec._id)">
+ <div ng-repeat="rec in records |orderBy:'-date' " ng-click="goto(rec._id)">
   <div class="item item-divider row">
     <div class="col col-33"><b>參考編號</b></div>
       <div class="col col-67"><b>{{rec.no}}</b></div>
@@ -66,7 +63,7 @@
 
           <tr>
             <td width="33%"><b>日期/時間</b></td>
-              <td width="65%"><b>{{rec.date}}</b></td>
+              <td width="65%"><b>{{rec.date  | date:'dd/MM/yyyy' }}</b></td>
           </tr>
            <tr>
                <td width="33%"><b>投注類別</b></td>

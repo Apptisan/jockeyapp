@@ -5,9 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('jockey', ['ionic'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$rootScope) {
   $ionicPlatform.ready(function() {
-      
+      $rootScope.baseURL='http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com';
+//$rootScope.baseURL='http://localhost';
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -33,7 +34,6 @@ angular.module('jockey', ['ionic'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
          $ionicConfigProvider.navBar.alignTitle('center');
-
   $stateProvider
 
   // setup an abstract state for the tabs directive
@@ -44,7 +44,7 @@ angular.module('jockey', ['ionic'])
     controller: 'homeCon'
   })
    .state('list', {
-    url: '/list',
+    url: '/list/',
       cache: false,
     templateUrl: 'templates/list.html',
     controller: 'listCon'
