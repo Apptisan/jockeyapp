@@ -1,5 +1,6 @@
 /* Empty. Add your own CSS if you like */
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p,div,select{font-family:Microsoft YaHei!important;}
+html{color:black!important;}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p,div,select{font-family:"微軟正黑體"!important;}
 .bar{height:50px}
 .has-header{top:122px;}
 .platform-android .bar .title,.bar .title{line-height:50px;height:50px;font-weight:bold}
@@ -14,7 +15,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p,div,select{font-family:Mi
 .bar-subheader p{text-align:center;line-height:19px;font-size:13px;margin:0;}
 .centerbox{display:table-cell; vertical-align:middle}
 .seach-bar{background-image:url(../img/33.jpg);background-size: auto 100%;color:#fff;line-height:29px;padding-left:7px;height:29px;}
-.item{padding:0px;border:none;font-size:13px}
+.item{padding:0px;border:none;font-size:13px;color:#000!important;}
 .item-divider{padding:0 2px;background:url(../img/44.jpg) center repeat-x;background-size: auto 100%;line-height:20px;color:#fff;min-height: 20px;margin:-1px 0;border:none}
 .item-divider,.seach-bar{font-size:13px;font-weight:500}
 .seach-bar{position: absolute;top:122px;width:100%}
@@ -40,7 +41,11 @@ table{width: 100%;table-layout:fixed;}
 .item-select{height:19px}
 .item-select select{max-width:100%;width:100%!improtant;padding:0;color: #686867;font-size:13px;line-height:19px}
 .input-label{width:0;}
-.datep input[type="date"]{padding-top:0;height:19px;font-size:13px;line-height:9px;color:#686867!important;width:100%;text-align:right;-webkit-appearance: none;-moz-appearance: none;appearance: none;vertical-align:top;position:absolute;right:-23px;top:3px;}
+
+
+.datep input[type="date"]{padding-top:0;height:19px;font-size:13px;color:#686867!important;width:100%;text-align:right;-webkit-appearance: none;-moz-appearance: none;appearance: none;vertical-align:top;position:absolute;right:-23px;top:3px;    background-color: white;}
+
+
 .platform-ios input[type="date"]{padding-top: 0;}
 .datep{position: relative;height:19px;}
 .item-input input, .item-input textarea {

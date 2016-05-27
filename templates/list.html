@@ -46,7 +46,7 @@
 
 </div>  
    
- <div class="seach-bar"><b>搜尋時段:{{searchDate.startDate | date:'dd/MM/yyyy' }}至{{searchDate.endDate|  date:'dd/MM/yyyy' }}</b></div>        
+ <div class="seach-bar"><b>搜尋時段: {{searchDate.startDate | date:'dd/MM/yyyy' }} 至 {{searchDate.endDate|  date:'dd/MM/yyyy' }}</b></div>        
 <ion-content class="has-subheader" overflow-scroll="true"  style="top:151px;">
     
  <div class="list">
@@ -77,11 +77,11 @@
           
            <tr>
                <td width="33%"><b>支出</b></td>
-               <td width="65%"><b>${{rec.expense}}</b></td>
+               <td width="65%"><b>{{rec.expense |currency}}</b></td>
           </tr>
             <tr>
                <td width="33%"><b>存入</b></td>
-               <td width="65%"><b>${{rec.income}}</b></td>
+               <td width="65%"><b>{{rec.income |currency}}</b></td>
           </tr>
       
       </table>

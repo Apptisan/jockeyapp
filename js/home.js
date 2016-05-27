@@ -8,19 +8,19 @@ app.controller('homeCon', function($scope,$http,$rootScope,$state) {
     
     $http({
                   method: 'GET',
-              url:$rootScope.baseURL+'/mobile/info',
+              url:'http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com/mobile/info',
                 }).then(
               function successCallback(rs){
               console.log(rs.data)
                      $rootScope.info=rs.data.info;
-                 
+                 console.log("done ok")
               
 
               
                     },
               function errorCallback(response){
                   
-               
+               console.log(response)
               });
     
     
