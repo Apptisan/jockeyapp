@@ -30,29 +30,41 @@ angular.module('jockey', ['ionic','ion-affix','ngCordova'])
 
      
 if (window.cordova) {
+  
  var db = sqlitePlugin.openDatabase({ name: "iautocount.db", location: 'default'}); //device
-        db.executeSql('DROP TABLE IF EXISTS MyTable');
-  db.executeSql('CREATE TABLE MyTable (name varchar(200))');
-      
-    db.executeSql('INSERT INTO MyTable VALUES (?)', ['wusiheng'], function (resultSet) {
-  alert('resultSet.insertId: ' + resultSet.insertId);
-  console.log('resultSet.rowsAffected: ' + resultSet.rowsAffected); 
-       // console.log('rs:'+resultSet.rows.item)
+    $rootScope.db=db;
+        db.executeSql('DROP TABLE IF EXISTS info');
+  db.executeSql('CREATE TABLE info (date DATETIME, account VARCHAR(20), balance INT)');
+     
+            //db.executeSql('CREATE TABLE IF NOT EXISTS info (date DATE, account VARCHAR(20), balance INT)');
+
+    
+    //insert dummy data
+    db.executeSql('INSERT INTO info VALUES (?,?,?)', [new Date(),'4345544',563473], function (resultSet) {
+  //alert('resultSet.insertId: ' + resultSet.insertId);
+
+    
+       //get dummny data
+      db.executeSql('SELECT * FROM info', [], function (resultSet) {
+    for(var i=0;i<resultSet.rows.length;i++)
+        {
+            
+           $rootScope.info=resultSet.rows.item(i);
+           $rootScope.info.date=new Date($rootScope.info.date) 
+
+        }
+       
 }, function(error) {
   console.log('SELECT error: ' + error.message);
 });
+    //get dummy
     
+    }, function(error) {
+  console.log('SELECT error: ' + error.message);
+});
     
-    
-//      db.executeSql('SELECT * FROM MyTable', [], function (resultSet) {
-//    for(var i=0;i<resultSet.rows.length;i++)
-//        {
-//             console.log('rs:'+resultSet.rows.item(i).name)
-//        }
-//       
-//}, function(error) {
-//  console.log('SELECT error: ' + error.message);
-//});
+      
+ 
     
 
 }else{

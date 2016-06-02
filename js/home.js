@@ -1,17 +1,7 @@
 var app = angular.module('jockey');
 app.controller('homeCon', function($scope,$http,$rootScope,$state,$cordovaSQLite) {
     
-    $scope.doit=function(){
-        
-          $rootScope.db.transaction(function(tx) {
-tx.executeSql(
-"SELECT name FROM sqlite_master WHERE type='table'",[], function(res) {
-console.log("PRAGMA res: " + JSON.stringify(res));
-},function(error) {
-console.log(error);
-});
-});
-    }
+   
        
     
 //      
@@ -25,7 +15,7 @@ console.log(error);
 //    }
    // insert('siheng','wu');
     
-    //dd
+    
     //***********************************//
     
     $rootScope.isShown=false;
@@ -71,25 +61,25 @@ var endDate=new Date();
             startDate:startDate,
             endDate:endDate
         };
+     
     
-    
-    $http({
-                  method: 'GET',
-              url:'http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com/mobile/info',
-                }).then(
-              function successCallback(rs){
-              console.log(rs.data)
-                     $rootScope.info=rs.data.info;
-                 console.log("done ok")
-              
-
-              
-                    },
-              function errorCallback(response){
-                  
-               console.log(response)
-              });
-    
+//    $http({
+//                  method: 'GET',
+//              url:'http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com/mobile/info',
+//                }).then(
+//              function successCallback(rs){
+//              console.log(rs.data)
+//                     $rootScope.info=rs.data.info;
+//                 console.log("done ok")
+//              
+//
+//              
+//                    },
+//              function errorCallback(response){
+//                  
+//               console.log(response)
+//              });
+//    
     
        
     

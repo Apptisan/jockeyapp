@@ -17,8 +17,8 @@
   
       <div class="bar bar-subheader " ng-class="{'topshow1': isShown}">
      <div class="centerbox">
-         <p class="pb5">時間:  {{info.date | date:'dd/MM/yyyy'}} {{info.time | date:'HH:mm'}}</p>
-     <p class="pb5">戶口號碼:  {{info.acc}}</p>
+         <p class="pb5">時間:  {{info.date | date:'dd/MM/yyyy HH:mm'}}</p>
+     <p class="pb5">戶口號碼:  {{info.account}}</p>
      <p>結餘: {{ info.balance | currency }}</p>
      </div>
 
