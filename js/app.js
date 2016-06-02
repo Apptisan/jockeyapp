@@ -3,12 +3,16 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('jockey', ['ionic'])
+angular.module('jockey', ['ionic','ion-affix','ngCordova'])
 
 .run(function($ionicPlatform,$rootScope) {
   $ionicPlatform.ready(function() {
       $rootScope.baseURL='http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com';
-//$rootScope.baseURL='http://localhost';
+   
+      
+      
+      
+      
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -22,10 +26,82 @@ angular.module('jockey', ['ionic'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+//db = window.openDatabase("my.db", '1', 'my', 1024 * 1024 * 100);
+
+     
+if (window.cordova) {
+ var db = sqlitePlugin.openDatabase({ name: "iautocount.db", location: 'default'}); //device
+        db.executeSql('DROP TABLE IF EXISTS MyTable');
+  db.executeSql('CREATE TABLE MyTable (name varchar(200))');
       
+    db.executeSql('INSERT INTO MyTable VALUES (?)', ['wusiheng'], function (resultSet) {
+  alert('resultSet.insertId: ' + resultSet.insertId);
+  console.log('resultSet.rowsAffected: ' + resultSet.rowsAffected); 
+       // console.log('rs:'+resultSet.rows.item)
+}, function(error) {
+  console.log('SELECT error: ' + error.message);
+});
+    
+    
+    
+//      db.executeSql('SELECT * FROM MyTable', [], function (resultSet) {
+//    for(var i=0;i<resultSet.rows.length;i++)
+//        {
+//             console.log('rs:'+resultSet.rows.item(i).name)
+//        }
+//       
+//}, function(error) {
+//  console.log('SELECT error: ' + error.message);
+//});
+    
+
+}else{
+    //using web sql which only works on Chome
+    
+// $rootScope.db = window.openDatabase("iautocount.db", '1', 'auto', 1024 * 1024 * 100); // browser
+//    var msg;
+//        $rootScope.db.transaction(function (context) {
+//           context.executeSql('CREATE TABLE IF NOT EXISTS testTable (id unique, name)');
+//           context.executeSql('INSERT INTO testTable (id, name) VALUES (0, "Byron")');
+//           context.executeSql('INSERT INTO testTable (id, name) VALUES (1, "Casper")');
+//           context.executeSql('INSERT INTO testTable (id, name) VALUES (2, "Frank")');
+//         });
+//
+//        $rootScope.db.transaction(function (context) {
+//           context.executeSql('SELECT * FROM testTable', [], function (context, results) {
+//            var len = results.rows.length, i;
+//            console.log('Got '+len+' rows.');
+//               for (i = 0; i < len; i++){
+//              console.log('id: '+results.rows.item(i).id);
+//              console.log('name: '+results.rows.item(i).name);
+//            }
+//         });
+//        });
+
+}
+      
+ 
      
   });
+
+    
+
+
 })
+
+.filter('dashFilter',function(){
+        
+       
+    return function(input,showDate){
+         
+        if(input==null||input==''||showDate==false)
+            return '-'
+        else return input;
+    }
+    
+        })
+
+
 
 .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
 

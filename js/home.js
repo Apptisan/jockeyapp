@@ -1,10 +1,77 @@
 var app = angular.module('jockey');
-app.controller('homeCon', function($scope,$http,$rootScope,$state) {
-  
+app.controller('homeCon', function($scope,$http,$rootScope,$state,$cordovaSQLite) {
+    
+    $scope.doit=function(){
+        
+          $rootScope.db.transaction(function(tx) {
+tx.executeSql(
+"SELECT name FROM sqlite_master WHERE type='table'",[], function(res) {
+console.log("PRAGMA res: " + JSON.stringify(res));
+},function(error) {
+console.log(error);
+});
+});
+    }
+       
+    
+//      
+//     function insert(firstname, lastname) {
+//        var query = "INSERT INTO people (firstname, lastname) VALUES (?,?)";
+//        $cordovaSQLite.execute(db, query, [firstname, lastname]).then(function(res) {
+//            console.log("INSERT ID -> " + res.insertId);
+//        }, function (err) {
+//            console.error(err);
+//        });
+//    }
+   // insert('siheng','wu');
+    
+    
+    //***********************************//
+    
+    $rootScope.isShown=false;
+$rootScope.openTradeType=function(){
+      $rootScope.isShown=true;
+    $rootScope.tradeType=true;
+}    
+
+$rootScope.closeTradeType=function(){
+     $rootScope.isShown=false;
+        $rootScope.tradeType=false;
+
+}
+
+
+$rootScope.openDisplayType=function(){
+     $rootScope.isShown=true;
+        $rootScope.displayType=true;
+
+}
+
+
+$rootScope.closeDisplayType=function(){
+    $rootScope.isShown=false;
+        $rootScope.displayType=false;
+
+}
+
+
+
+var startDate=new Date();
+    startDate.setHours(0);
+    startDate.setMinutes(0);
+    startDate.setSeconds(0);
+    
+var endDate=new Date();
+    endDate.setHours(23);
+    endDate.setMinutes(59);
+    endDate.setSeconds(59);
+    
+
         $rootScope.searchDate={
-            startDate:new Date(),
-            endDate:new Date()
+            startDate:startDate,
+            endDate:endDate
         };
+    
     
     $http({
                   method: 'GET',

@@ -1,6 +1,5 @@
-  
  
-<ion-view view-title="戶口記錄 ">
+<ion-view view-title="戶口紀錄 ">
      <!--button-->
      <ion-nav-buttons side="left">      
       
@@ -14,29 +13,23 @@
   
     </ion-nav-buttons>
      <!--button-->
-     
+
   
-      <div class="bar bar-subheader">
+      <div class="bar bar-subheader " ng-class="{'topshow1': isShown}">
      <div class="centerbox">
-         <p>時間:  {{info.date | date:'dd/MM/yyyy'}} {{info.time | date:'HH:mm'}}</p>
-     <p>戶口號碼:  {{info.acc}}</p>
+         <p class="pb5">時間:  {{info.date | date:'dd/MM/yyyy'}} {{info.time | date:'HH:mm'}}</p>
+     <p class="pb5">戶口號碼:  {{info.acc}}</p>
      <p>結餘: {{ info.balance | currency }}</p>
      </div>
 
 </div>  
-     
+
+  <!--topshow1\topshow2是動作控制class通過添加，刪除實現動作，正常狀態下是沒有這兩個class的-->   
     
-        <ion-content class="has-subheader">
-            
-        
- 
+        <ion-content class="has-subheader " ng-class="{'topshow2': isShown}">
       
 
-
-            
-            
-
-    <p class="text1">每次最多可搜尋過去30天内其中8天</p>
+    <p class="text1">每次最多可搜尋過去30天内其中8天<button ng-click="doit()">doit</button></p>
 <div class="card">
   <div class="row">
       <div class="col-33 leftbox">
@@ -45,8 +38,8 @@
       </div>
 
       <div class="col-67 rightbox">
-        <p class="datep"><input type="date" ng-model="searchDate.startDate"></p>
-        <p class="datep"><input type="date" ng-model="searchDate.endDate"></p>
+        <p class="datep"><input type="date" ng-model="searchDate.startDate "></p>
+        <p class="datep"><input type="date" ng-model="searchDate.endDate "></p>
           
       </div>
       <div>
@@ -64,21 +57,23 @@
        
       </div>
       
-       <div class="col-67 rightbox">
-          <label class="item item-input item-select">
-   <div class="input-label">
-    
-   </div>
-   <select>
+       <div class="col-67 rightbox" id="type1">
+         
+          <p ng-click="openTradeType()">所有</p>
+              
+   <!--
+   <select ng-click="openTradeType()">
+
          <option value="saab">賽馬</option>
                 <option value="saab">足球</option>
          <option value="saab">六合彩</option>
-         <option selected value="saab">所有</option>
+         <option value="volvo">其他</option>
 
-     <option value="volvo">其他</option>
+<option selected value="saab">所有</option>
+     
  
-   </select>
- </label>
+   </select>-->
+ 
 
       </div> 
     
@@ -92,7 +87,10 @@
        
       </div>
       
-      <div class="col-67 rightbox">
+      <div class="col-67 rightbox" id="type2">
+            <p ng-click="openDisplayType()">所有</p>
+<!--
+          
           <label class="item item-input item-select">
    <div class="input-label">
     
@@ -103,6 +101,7 @@
  
    </select>
  </label>
+-->
 
       </div> 
     
@@ -113,4 +112,5 @@
         
  </ion-content>
  
+       
       </ion-view>

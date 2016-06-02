@@ -3,11 +3,11 @@ app.controller('createCon', function($scope,$http,$rootScope,$stateParams,$state
   
    
     
-    $scope.rec={date:new Date()};
+    $scope.rec={date:new Date(),showDate:false};
     
     
 $scope.add=function(){
-      console.log($scope.rec)
+   if($scope.rec.date==null)return alert('Please select date');
 
       $http({
                     method: 'POST',

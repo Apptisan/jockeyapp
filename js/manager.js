@@ -24,7 +24,7 @@ app.controller('managerCon', function($scope,$http,$rootScope,$state) {
     
     
 $scope.save=function(){
-   console.log($scope.info.time)
+
       $http({
                     method: 'PUT',
                     url:$rootScope.baseURL+'/mobile/info/',

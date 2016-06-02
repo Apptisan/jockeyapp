@@ -1,6 +1,6 @@
  
  
-<ion-view view-title="戶口記錄">
+<ion-view view-title="戶口紀錄">
     
     
     
@@ -36,61 +36,84 @@
       
   
   
+
       <div class="bar bar-subheader">
 
       <div class="centerbox">
-           <p>時間:  {{info.date | date:'dd/MM/yyyy'}}</p>
-     <p>戶口號碼:  {{info.acc}}</p>
+           <p class="pb5">時間:  {{info.date | date:'dd/MM/yyyy'}} {{info.time | date:'HH:mm'}}</p>
+     <p class="pb5">戶口號碼:  {{info.acc}}</p>
      <p>結餘: {{ info.balance | currency }}</p>
      </div>
 
 </div>  
    
- <div class="seach-bar"><b>搜尋時段: {{searchDate.startDate | date:'dd/MM/yyyy' }} 至 {{searchDate.endDate|  date:'dd/MM/yyyy' }}</b></div>        
-<ion-content class="has-subheader" overflow-scroll="true"  style="top:151px;">
     
- <div class="list">
 
- <div ng-repeat="rec in records |orderBy:'-date' " ng-click="goto(rec._id)">
-  <div class="item item-divider row">
-    <div class="col col-33"><b>參考編號</b></div>
-      <div class="col col-67"><b>{{rec.no}}</b></div>
+       
+
+ 
+    
+<ion-content class="has-subheader">
+ <div class="seach-bar"><b>搜尋時段: {{searchDate.startDate | date:'dd/MM/yyyy' }} 至 {{searchDate.endDate|  date:'dd/MM/yyyy' }}</b></div> 
+       
+ <div scroll-event-interval="5" style="margin-top:29px">
+    
+    
+    <div class="list" ng-repeat="rec in records |orderBy:'no' " ng-click="goto(rec._id)">
+
+ <div>
+
+  <div class="item item-divider row" ion-affix data-affix-within-parent-with-class="list">
+    <div class="col col-30"><span>參考編號</span></div>
+      <div class="col col-70"><span>{{rec.no}}</span></div>
   </div>
 
      
-     <div class="item">
+     <div class="item item-text-wrap">
       <table>
 
           <tr>
-            <td width="33%"><b>日期/時間</b></td>
-              <td width="65%"><b>{{rec.date  | date:'dd/MM/yyyy' }}</b></td>
+            <td width="30%"><b>日期 / 時間</b></td>
+              <td width="68%"><b>{{rec.date |dashFilter:rec.showDate | date:'dd-MM-yyyy HH:mm' }} </b></td>
           </tr>
            <tr>
-               <td width="33%"><b>投注類別</b></td>
-               <td width="65%"><b>{{rec.type}}</b></td>
+               <td width="30%"><b>投注類別</b></td>
+               <td width="68%"><b>{{rec.type|dashFilter}}</b></td>
           </tr>
 
            <tr>
-               <td width="33%"><b>細節</b></td>
-               <td width="65%"><b>{{rec.detail}}</b></td>
+               <td width="30%"><b>細節</b></td>
+               <td width="68%"><b>{{rec.detail|dashFilter}}</b></td>
           </tr>
           
            <tr>
-               <td width="33%"><b>支出</b></td>
-               <td width="65%"><b>{{rec.expense |currency}}</b></td>
+               <td width="30%"><b>支出</b></td>
+               <td width="68%"><b>{{rec.expense |currency|dashFilter}}</b></td>
           </tr>
             <tr>
-               <td width="33%"><b>存入</b></td>
-               <td width="65%"><b>{{rec.income |currency}}</b></td>
+               <td width="30%"><b>存入</b></td>
+               <td width="68%"><b>{{rec.income |currency|dashFilter}}</b></td>
           </tr>
+         
       
       </table>
      </div> 
      
    </div>  
-     
-<!--     
-  <div class="item">
+    </div>    
+</div>
+
+
+
+<!--
+ <div class="list">
+     <div>  
+   <div class="item item-divider row" ion-affix data-affix-within-parent-with-class="list">
+    <div class="col col-33"><b>參考編號</b></div>
+      <div class="col col-67"><b>11111</b></div>
+  </div>
+  
+  <div class="item item-text-wrap">
       <table>
 
           <tr>
@@ -118,11 +141,131 @@
       
       </table>
      </div>
-   -->  
-
-   
+     </div>
  
+    </div> 
+    
+    <div class="list">
+     <div>  
+   <div class="item item-divider row" ion-affix data-affix-within-parent-with-class="list">
+    <div class="col col-33"><b>參考編號</b></div>
+      <div class="col col-67"><b>22222</b></div>
+  </div>
+  
+  <div class="item item-text-wrap">
+      <table>
+
+          <tr>
+            <td width="33%"><b>日期/時間</b></td>
+              <td width="65%"><b>11-05-2016 00:39</b></td>
+          </tr>
+           <tr>
+               <td width="33%"><b>投注類別</b></td>
+               <td width="65%"><b>讓球</b></td>
+          </tr>
+
+           <tr>
+               <td width="33%"><b>細節</b></td>
+               <td width="65%"><b>星期二 1 韋斯咸（主）對 曼聯（客）客【0/-0.5】 @1.97 $200</b></td>
+          </tr>
+          
+           <tr>
+               <td width="33%"><b>支出</b></td>
+               <td width="65%"><b>$65.00</b></td>
+          </tr>
+            <tr>
+               <td width="33%"><b>存入</b></td>
+               <td width="65%"><b>$200.00</b></td>
+          </tr>
+      
+      </table>
+     </div>
+     </div>
+ 
+    </div> 
+
+ <div class="list">
+     <div>  
+   <div class="item item-divider row" ion-affix data-affix-within-parent-with-class="list">
+    <div class="col col-33"><b>參考編號</b></div>
+      <div class="col col-67"><b>33333</b></div>
+  </div>
+  
+  <div class="item item-text-wrap">
+      <table>
+
+          <tr>
+            <td width="33%"><b>日期/時間</b></td>
+              <td width="65%"><b>11-05-2016 00:39</b></td>
+          </tr>
+           <tr>
+               <td width="33%"><b>投注類別</b></td>
+               <td width="65%"><b>讓球</b></td>
+          </tr>
+
+           <tr>
+               <td width="33%"><b>細節</b></td>
+               <td width="65%"><b>星期二 1 韋斯咸（主）對 曼聯（客）客【0/-0.5】 @1.97 $200</b></td>
+          </tr>
+          
+           <tr>
+               <td width="33%"><b>支出</b></td>
+               <td width="65%"><b>$65.00</b></td>
+          </tr>
+            <tr>
+               <td width="33%"><b>存入</b></td>
+               <td width="65%"><b>$200.00</b></td>
+          </tr>
+      
+      </table>
+     </div>
+     </div>
+ 
+    </div> 
+
+     <div class="list">
+     <div>  
+   <div class="item item-divider row" ion-affix data-affix-within-parent-with-class="list">
+    <div class="col col-33"><b>參考編號</b></div>
+      <div class="col col-67"><b>44444</b></div>
+  </div>
+  
+  <div class="item item-text-wrap">
+      <table>
+
+          <tr>
+            <td width="33%"><b>日期/時間</b></td>
+              <td width="65%"><b>11-05-2016 00:39</b></td>
+          </tr>
+           <tr>
+               <td width="33%"><b>投注類別</b></td>
+               <td width="65%"><b>讓球</b></td>
+          </tr>
+
+           <tr>
+               <td width="33%"><b>細節</b></td>
+               <td width="65%"><b>星期二 1 韋斯咸（主）對 曼聯（客）客【0/-0.5】 @1.97 $200</b></td>
+          </tr>
+          
+           <tr>
+               <td width="33%"><b>支出</b></td>
+               <td width="65%"><b>$65.00</b></td>
+          </tr>
+            <tr>
+               <td width="33%"><b>存入</b></td>
+               <td width="65%"><b>$200.00</b></td>
+          </tr>
+      
+      </table>
+     </div>
+     </div>
+ 
+    </div>     
+-->
+
+
+  
+     
 </ion-content>
-        
       </ion-view>
    

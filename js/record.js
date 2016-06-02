@@ -24,7 +24,7 @@ app.controller('recordCon', function($scope,$http,$rootScope,$stateParams,$state
     
     
 $scope.save=function(){
-   
+   if($scope.rec.date==null)return alert('Please select date');
       $http({
                     method: 'PUT',
                     url:$rootScope.baseURL+'/mobile/record/',

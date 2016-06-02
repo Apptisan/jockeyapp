@@ -13,9 +13,9 @@
     -->
 
     <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
+    <script src="js/ionic.bundle.min.js"></script>
+    <script src="js/ng-cordova.js"></script>
+      <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
@@ -26,16 +26,37 @@
           <script src="js/record.js"></script>
             <script src="js/create.js"></script>
 
-
+  <script src="js/ion-affix.js"></script>
+      
   </head>
   <body ng-app="jockey">
+       
+  <div class="overdiv" ng-show="tradeType" ng-click="closeTradeType()">
+      <div>
+        <img  src="img/tpye.png" ng-class="{'bottomshow': isShown}"/>
+      </div>
+             
+            </div>
+      
+    <div class="overdiv" ng-show="displayType" ng-click="closeDisplayType  ()">
+      <div>
+        <img  src="img/all.png" ng-class="{'bottomshow': isShown}"/>
+      </div>
+             
+            </div>
+   <!--bottomshow默认状态下沒有，通过添加或刪除实现动画-->   
+    
+      
+      
        <ion-nav-bar class="bar-positive"  >
+
            <div class="top-bar">
          <div class="w1">
            <img src="img/top-bar.png"/>
          </div>
-     
+
 </div>  
+
  
 
     </ion-nav-bar>
